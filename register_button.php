@@ -12,8 +12,8 @@
     file_put_contents('abc1.txt',file_get_contents('php://input'),FILE_APPEND);
     file_put_contents('abc1.txt',json_encode($array),FILE_APPEND);
 
-    $serial = "DB_Shalu";
-    $location_id=145;
+   /* $serial = "DB_Shalu";
+    $location_id=145;*/
 
     //insert the button to the mighty table 
      $bs ="insert into button ( serial, location_id) values (".$serial."', ".$location_id.")";

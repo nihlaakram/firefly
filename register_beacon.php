@@ -13,10 +13,11 @@
     file_put_contents('abc.txt',file_get_contents('php://input'),FILE_APPEND);
     file_put_contents('abc.txt',json_encode($array),FILE_APPEND);
 
+/*
     $namespace="edd1ebeac04e5defa017";
     $instance="64872c865aba";
     $location_id=145;
-    /*
+    
     Namespace: edd1ebeac04e5defa017
     Instance: 64872c865aba
     */
