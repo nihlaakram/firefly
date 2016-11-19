@@ -1,25 +1,20 @@
 <?php
 
 //db connection
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "firefly";
+require "db_create.php";
 
-    // Create connection
-    $conn = mysqli_connect($servername, $username, $password, $dbname);
-
-    // Check connection
-    if (!$conn) {
-        die("Connection failed: " . mysqli_connect_error());
-        echo "<script>
-                alert(\"Connection Error to db\");
-              </script>";
-
-	}
 //sends button id
-$serial = "DB266";
+$array =  json_decode(file_get_contents('php://input'), true);
+$event = $array['event_name'];
+$serial = $array['mac'];
 
+/*
+$serial = "DB266";
+$event = "PRESSED";*/
+    file_put_contents('abc2.txt',file_get_contents('php://input'),FILE_APPEND);
+    file_put_contents('abc2.txt',json_encode($array),FILE_APPEND);
+    
+    if ($event=='PRESSED') {
 //get the location id
 $sql1 = "SELECT * FROM button where serial='".$serial."'";
 	$result1 = $conn->query($sql1);
@@ -34,20 +29,23 @@ $sql1 = "SELECT * FROM button where serial='".$serial."'";
                 
             while($row = $result->fetch_assoc()) {
                 $beacon =  $row["beacon_id"];
-                echo "-------------------- ".$beacon;
                 
                 $sql = "SELECT * FROM salesassistant where current_beacon_id='".$beacon."'";
                 $result2 = $conn->query($sql);
-
+                $myfile = fopen("assitfile.txt", "wb") or die("Unable to open file!");
                 if ($result2->num_rows > 0) {
 		          // output data of each row
                     //use beacon and fetch the connected 
 		          while($row = $result2->fetch_assoc()) {
-	               echo "------------------  ".$row["id"];
+                        $text = $row["id"]."\n";
+                      echo $text;
+                        fwrite($myfile, $row["id"]. "\r\n");
+                       
 		          }
 	           } else {
 		          echo "0 results";
                 }
+                 fclose($myfile);
             }
 	       
 		
@@ -61,6 +59,14 @@ $sql1 = "SELECT * FROM button where serial='".$serial."'";
 	} else {
 
 	}
+
+	
+	}else{
+
+		
+		
+	}
+
 
 $conn->close();
 
