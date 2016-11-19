@@ -8,9 +8,8 @@ $array =  json_decode(file_get_contents('php://input'), true);
 $event = $array['event_name'];
 $serial = $array['mac'];
 
-/*
 $serial = "DB266";
-$event = "PRESSED";*/
+$event = "PRESSED";
     file_put_contents('abc2.txt',file_get_contents('php://input'),FILE_APPEND);
     file_put_contents('abc2.txt',json_encode($array),FILE_APPEND);
     
@@ -37,9 +36,10 @@ $sql1 = "SELECT * FROM button where serial='".$serial."'";
 		          // output data of each row
                     //use beacon and fetch the connected 
 		          while($row = $result2->fetch_assoc()) {
-                        $text = $row["id"]."\n";
-                      echo $text;
+                       // $text = $row["id"]."\n";
+                        echo $row["id"];
                         fwrite($myfile, $row["id"]. "\r\n");
+                        require "connect.php";
                        
 		          }
 	           } else {

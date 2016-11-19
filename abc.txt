@@ -1,1 +1,9 @@
-nullnullnullnullnullnullnullnullnullnullnullnullnullnullnullnullnull
+nullnullnullnullnullnullnullnullnullnullnullnullnullnullnullnullnull{
+	"namespace":"test",
+	"instance":"test",
+	"location_id":"123"
+}{"namespace":"test","instance":"test","location_id":"123"}{
+	"namespace":"test",
+	"instance":"test",
+	"location_id":"123"
+}{"namespace":"test","instance":"test","location_id":"123"}

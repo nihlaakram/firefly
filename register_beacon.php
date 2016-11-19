@@ -12,19 +12,19 @@
     $location_id = $array['location_id'];   
     file_put_contents('abc.txt',file_get_contents('php://input'),FILE_APPEND);
     file_put_contents('abc.txt',json_encode($array),FILE_APPEND);
+    var_dump(http_response_code(201));
 
-/*
     $namespace="edd1ebeac04e5defa017";
     $instance="64872c865aba";
     $location_id=145;
-    
+    /*
     Namespace: edd1ebeac04e5defa017
     Instance: 64872c865aba
     */
     //insert the stuoid beacon to the mighty table 
      $bs ="insert into beacon ( namespace, instance, location_id) values ('".$namespace."', '".$instance."', ".$location_id.")";
     if ($conn->query($bs) === TRUE) {
-    //echo "Record updated successfully";
+            echo "Record updated successfully";
     } else {
        // echo "Error updating record: " . $conn->error;    
     }

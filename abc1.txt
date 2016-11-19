@@ -1,1 +1,21 @@
-null
+null{
+	"namespace":"test",
+	"instance":"test",
+	"location_id":"123"
+}{"namespace":"test","instance":"test","location_id":"123"}{
+	"namespace":"test",
+	"instance":"test",
+	"location_id":"123"
+}{"namespace":"test","instance":"test","location_id":"123"}{
+	"namespace":"test",
+	"instance":"test",
+	"location_id":"123"
+}{"namespace":"test","instance":"test","location_id":"123"}null{
+	"namespace":"test",
+	"instance":"test",
+	"location_id":"123"
+}{"namespace":"test","instance":"test","location_id":"123"}{
+	"namespace":"test",
+	"instance":"test",
+	"location_id":"123"
+}{"namespace":"test","instance":"test","location_id":"123"}
